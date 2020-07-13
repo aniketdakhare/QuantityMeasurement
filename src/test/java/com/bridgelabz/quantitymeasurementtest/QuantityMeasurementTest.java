@@ -87,4 +87,13 @@ public class QuantityMeasurementTest
         boolean result = length1.equals(length2);
         Assert.assertFalse(result);
     }
+
+    @Test
+    public void givenLengthsInInch_WhenCheckedForValue_ShouldReturnTrue()
+    {
+        QuantityMeasurement length1 = new QuantityMeasurement(5.0, Unit.FEET);
+        QuantityMeasurement length2 = new QuantityMeasurement(5.0, Unit.FEET);
+        boolean result = length1.equals(length2);
+        Assert.assertTrue(result);
+    }
 }
