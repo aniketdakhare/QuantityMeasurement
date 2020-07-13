@@ -4,16 +4,26 @@ import com.bridgelabz.quantitymeasurement.utility.Unit;
 
 public class QuantityMeasurement
 {
-    /**
-     * METHOD TO CONVERT INTO CORRESPONDING LENGTHS AND TO COMPARE IT
-     * @param units provides type of units
-     * @param length provides corresponding lengths
-     * @return result after comparing the values
-     */
-    public boolean compareLengths(Unit[] units,double... length)
+    private double length;
+    private Unit unit;
+
+    public QuantityMeasurement(double length, Unit unit)
     {
-        double value1 = (length[0] * units[0].value);
-        double value2 = (length[1] * units[1].value);
-        return Double.compare(value1, value2) == 0;
+        this.length = (length * unit.value);
+        this.unit = unit;
+    }
+
+    public QuantityMeasurement()
+    {
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        QuantityMeasurement that = (QuantityMeasurement) o;
+        return Double.compare(that.length, length) == 0 &&
+                unit == that.unit;
     }
 }
