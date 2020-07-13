@@ -69,4 +69,13 @@ public class QuantityMeasurementTest
         boolean result = length1.equals(length2);
         Assert.assertFalse(result);
     }
+
+    @Test
+    public void givenLengthsInInch_WhenCheckedForTheReference_ShouldReturnFalse()
+    {
+        QuantityMeasurement length1 = new QuantityMeasurement(0.0, Unit.INCH);
+        QuantityMeasurement length2 = new QuantityMeasurement();
+        boolean result = length1.equals(length2);
+        Assert.assertFalse(result);
+    }
 }
