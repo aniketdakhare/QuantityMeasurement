@@ -5,15 +5,10 @@ public enum Unit
 
     INCH(1), FEET(12);
 
-    private final double value;
+    public double value;
 
     Unit(double value)
     {
         this.value = value;
-    }
-
-    public double returnValue()
-    {
-        return value;
     }
 }
