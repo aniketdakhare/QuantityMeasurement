@@ -9,7 +9,7 @@ public class QuantityMeasurement
 
     public QuantityMeasurement(double length, Unit unit)
     {
-        this.length = length;
+        this.length = (length * unit.value);
         this.unit = unit;
     }
 
