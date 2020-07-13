@@ -34,5 +34,12 @@ public class QuantityMeasurementTest
         Assert.assertFalse(result);
     }
 
-
+    @Test
+    public void givenLengthsInFeet_WhenCheckedForTheType_ShouldReturnFalse()
+    {
+        QuantityMeasurement length1 = new QuantityMeasurement(0.0, Unit.FEET);
+        Object length2 = new Object();
+        boolean result = length1.equals(length2);
+        Assert.assertFalse(result);
+    }
 }
