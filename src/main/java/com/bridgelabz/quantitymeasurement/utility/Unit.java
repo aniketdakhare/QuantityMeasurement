@@ -2,9 +2,10 @@ package com.bridgelabz.quantitymeasurement.utility;
 
 public enum Unit
 {
+
     INCH(1), FEET(12);
 
-    public double value;
+    public final double value;
 
     Unit(double value)
     {
