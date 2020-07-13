@@ -10,10 +10,18 @@ public class QuantityMeasurementTest
     @Test
     public void givenLengthsInFeet_WhenEqual_ShouldReturnTrue()
     {
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        Unit[] unitTypes = {Unit.FEET, Unit.FEET};
-        boolean result = quantityMeasurement.compareLengths(unitTypes, 1.0, 1.0);
+        QuantityMeasurement length1 = new QuantityMeasurement(0.0, Unit.FEET);
+        QuantityMeasurement length2 = new QuantityMeasurement(0.0, Unit.FEET);
+        boolean result = length1.equals(length2);
         Assert.assertTrue(result);
     }
 
+    @Test
+    public void givenLengthsInFeet_WhenOneOfTheLengthIsNull_ShouldReturnFalse()
+    {
+        QuantityMeasurement length1 = new QuantityMeasurement(0.0, Unit.FEET);
+        QuantityMeasurement length2 = new QuantityMeasurement();
+        boolean result = length1.equals(length2);
+        Assert.assertFalse(result);
+    }
 }
