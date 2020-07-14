@@ -105,4 +105,13 @@ public class QuantityMeasurementTest
         boolean result = inchLength.equals(feetLength);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void givenLengthsInFeetAndYard_WhenCheckedForValue_ShouldReturnTrue()
+    {
+        QuantityMeasurement feetLength = new QuantityMeasurement(3.0, Unit.FEET);
+        QuantityMeasurement yardLength = new QuantityMeasurement(1.0, Unit.YARD);
+        boolean result = feetLength.equals(yardLength);
+        Assert.assertTrue(result);
+    }
 }
