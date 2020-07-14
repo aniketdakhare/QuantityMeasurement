@@ -28,7 +28,7 @@ public class QuantityMeasurementTest
     @Test
     public void givenLengthsInFeet_WhenCheckedForTheReference_ShouldReturnFalse()
     {
-        QuantityMeasurement length1 = new QuantityMeasurement(0.0, Unit.FEET);
+        QuantityMeasurement length1 = new QuantityMeasurement(2.0, Unit.FEET);
         QuantityMeasurement length2 = new QuantityMeasurement();
         boolean result = length1.equals(length2);
         Assert.assertFalse(result);
@@ -73,7 +73,7 @@ public class QuantityMeasurementTest
     @Test
     public void givenLengthsInInch_WhenCheckedForTheReference_ShouldReturnFalse()
     {
-        QuantityMeasurement length1 = new QuantityMeasurement(0.0, Unit.INCH);
+        QuantityMeasurement length1 = new QuantityMeasurement(2.0, Unit.INCH);
         QuantityMeasurement length2 = new QuantityMeasurement();
         boolean result = length1.equals(length2);
         Assert.assertFalse(result);
@@ -148,7 +148,7 @@ public class QuantityMeasurementTest
         QuantityMeasurement inchLength = new QuantityMeasurement(36.0, Unit.INCH);
         QuantityMeasurement yardLength = new QuantityMeasurement(1.0, Unit.YARD);
         boolean result = yardLength.equals(inchLength);
-        Assert.assertFalse(result);
+        Assert.assertTrue(result);
     }
 
     @Test
