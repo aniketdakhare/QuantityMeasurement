@@ -186,4 +186,13 @@ public class QuantityMeasurementTest
         boolean result = feetLength.equals(cmLength);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void givenLengthsInFeetAndCentimeter_WhenCheckedForValueAreNotEqual_ShouldReturnFalse()
+    {
+        QuantityMeasurement feetLength = new QuantityMeasurement(2.0, Unit.FEET);
+        QuantityMeasurement cmLength = new QuantityMeasurement(2.0, Unit.CENTIMETER);
+        boolean result = feetLength.equals(cmLength);
+        Assert.assertFalse(result);
+    }
 }
