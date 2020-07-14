@@ -116,7 +116,7 @@ public class QuantityMeasurementTest
     }
 
     @Test
-    public void givenLengthsInFeetAndYard_WhenCheckedForValueAreNotEqual_ShouldReturnTrue()
+    public void givenLengthsInFeetAndYard_WhenCheckedForValueAreNotEqual_ShouldReturnFalse()
     {
         QuantityMeasurement feetLength = new QuantityMeasurement(1.0, Unit.FEET);
         QuantityMeasurement yardLength = new QuantityMeasurement(1.0, Unit.YARD);
@@ -125,11 +125,20 @@ public class QuantityMeasurementTest
     }
 
     @Test
-    public void givenLengthsInInchAndYard_WhenCheckedForValueAreNotEqual_ShouldReturnTrue()
+    public void givenLengthsInInchAndYard_WhenCheckedForValueAreNotEqual_ShouldReturnFalse()
     {
         QuantityMeasurement inchLength = new QuantityMeasurement(1.0, Unit.INCH);
         QuantityMeasurement yardLength = new QuantityMeasurement(1.0, Unit.YARD);
         boolean result = inchLength.equals(yardLength);
         Assert.assertFalse(result);
+    }
+
+    @Test
+    public void givenLengthsInInchAndYard_WhenCheckedForValueAreEqual_ShouldReturnTrue()
+    {
+        QuantityMeasurement inchLength = new QuantityMeasurement(36.0, Unit.INCH);
+        QuantityMeasurement yardLength = new QuantityMeasurement(1.0, Unit.YARD);
+        boolean result = inchLength.equals(yardLength);
+        Assert.assertTrue(result);
     }
 }
