@@ -175,6 +175,15 @@ public class QuantityMeasurementTest
         QuantityMeasurement inchLength = new QuantityMeasurement(2.0, Unit.INCH);
         QuantityMeasurement cmLength = new QuantityMeasurement(2.0, Unit.CENTIMETER);
         boolean result = inchLength.equals(cmLength);
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void givenLengthsInFeetAndCentimeter_WhenCheckedForValueAreEqual_ShouldReturnTrue()
+    {
+        QuantityMeasurement feetLength = new QuantityMeasurement(2.0, Unit.FEET);
+        QuantityMeasurement cmLength = new QuantityMeasurement(60.0, Unit.CENTIMETER);
+        boolean result = feetLength.equals(cmLength);
         Assert.assertTrue(result);
     }
 }
