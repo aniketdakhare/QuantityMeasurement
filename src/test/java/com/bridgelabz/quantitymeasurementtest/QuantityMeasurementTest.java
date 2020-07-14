@@ -168,4 +168,13 @@ public class QuantityMeasurementTest
         boolean result = inchLength.equals(cmLength);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void givenLengthsInInchAndCentimeter_WhenCheckedForValueAreNotEqual_ShouldReturnFalse()
+    {
+        QuantityMeasurement inchLength = new QuantityMeasurement(2.0, Unit.INCH);
+        QuantityMeasurement cmLength = new QuantityMeasurement(2.0, Unit.CENTIMETER);
+        boolean result = inchLength.equals(cmLength);
+        Assert.assertTrue(result);
+    }
 }
