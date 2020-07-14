@@ -195,4 +195,13 @@ public class QuantityMeasurementTest
         boolean result = feetLength.equals(cmLength);
         Assert.assertFalse(result);
     }
+
+    @Test
+    public void givenLengthsInYardAndCentimeter_WhenCheckedForValueAreEqual_ShouldReturnTrue()
+    {
+        QuantityMeasurement yardLength = new QuantityMeasurement(2.0, Unit.YARD);
+        QuantityMeasurement cmLength = new QuantityMeasurement(180.0, Unit.CENTIMETER);
+        boolean result = yardLength.equals(cmLength);
+        Assert.assertTrue(result);
+    }
 }
