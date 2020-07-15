@@ -249,4 +249,13 @@ public class QuantityMeasurementTest
         double result = inchLength.addValues(inchLength, cmLength);
         Assert.assertEquals(3, result, 0.0);
     }
+
+    @Test
+    public void givenVolumeInLitreAndLitre_WhenCheckedForValueAreEqual_ShouldReturnTrue()
+    {
+        QuantityMeasurement litreValue = new QuantityMeasurement(0.0, Unit.LITRE);
+        QuantityMeasurement gallonValue = new QuantityMeasurement(0.0, Unit.LITRE);
+        boolean result = litreValue.compare(gallonValue);
+        Assert.assertTrue(result);
+    }
 }
