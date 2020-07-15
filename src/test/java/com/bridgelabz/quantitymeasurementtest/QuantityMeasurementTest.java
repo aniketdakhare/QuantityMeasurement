@@ -1,9 +1,11 @@
 package com.bridgelabz.quantitymeasurementtest;
 
+import com.bridgelabz.quantitymeasurement.exception.QuantityMeasurementException;
 import com.bridgelabz.quantitymeasurement.service.QuantityMeasurement;
 import com.bridgelabz.quantitymeasurement.utility.Unit;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class QuantityMeasurementTest
 {
@@ -293,5 +295,22 @@ public class QuantityMeasurementTest
         QuantityMeasurement mlValue = new QuantityMeasurement(2000.0, Unit.MILLILITRE);
         boolean result = litreValue.compare(mlValue);
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenLengthsInFeetAndCentimeter_WhenValuesAreNegative_ShouldThrowException()
+    {
+        try
+        {
+            QuantityMeasurement feetLength = new QuantityMeasurement(-2.0, Unit.FEET);
+            QuantityMeasurement cmLength = new QuantityMeasurement(60.0, Unit.CENTIMETER);
+            ExpectedException exceptionRule = ExpectedException.none();
+            exceptionRule.expect(QuantityMeasurementException.class);
+            feetLength.compare(cmLength);
+        }
+        catch (QuantityMeasurementException e)
+        {
+            e.printStackTrace();
+        }
     }
 }
