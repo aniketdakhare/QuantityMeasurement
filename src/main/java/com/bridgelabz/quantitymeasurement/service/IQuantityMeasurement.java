@@ -1,5 +1,6 @@
 package com.bridgelabz.quantitymeasurement.service;
 
+import com.bridgelabz.quantitymeasurement.exception.QuantityMeasurementException;
 import com.bridgelabz.quantitymeasurement.utility.Unit;
 
 @FunctionalInterface
@@ -15,6 +16,9 @@ public interface IQuantityMeasurement
      */
     default double addValues(QuantityMeasurement quantity1, QuantityMeasurement quantity2)
     {
+        if (quantity1.quantityType != quantity2.quantityType)
+            throw new QuantityMeasurementException("Given different type of quantities can't be added",
+                    QuantityMeasurementException.TYPE.NON_ADDABLE_QUANTITY);
         return convertValue(quantity1.unit, quantity1.value) + convertValue(quantity2.unit, quantity2.value);
     }
 }
