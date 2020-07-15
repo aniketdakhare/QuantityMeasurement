@@ -365,4 +365,13 @@ public class QuantityMeasurementTest
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void givenVolumeInGallonAndLitre_WhenAdded_ShouldReturnFalse()
+    {
+        QuantityMeasurement gallonValue = new QuantityMeasurement(1.0, Unit.GALLON);
+        QuantityMeasurement litreValue = new QuantityMeasurement(3.78, Unit.LITRE);
+        double result = gallonValue.addValues(litreValue, gallonValue);
+        Assert.assertEquals(7.56, result, 0.0);
+    }
 }
