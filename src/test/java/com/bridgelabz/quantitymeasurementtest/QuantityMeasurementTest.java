@@ -12,7 +12,7 @@ public class QuantityMeasurementTest
     {
         QuantityMeasurement length1 = new QuantityMeasurement(0.0, Unit.FEET);
         QuantityMeasurement length2 = new QuantityMeasurement(0.0, Unit.FEET);
-        boolean result = length1.equals(length2);
+        boolean result = length1.compare(length2);
         Assert.assertTrue(result);
     }
 
@@ -48,7 +48,7 @@ public class QuantityMeasurementTest
     {
         QuantityMeasurement length1 = new QuantityMeasurement(5.0, Unit.FEET);
         QuantityMeasurement length2 = new QuantityMeasurement(5.0, Unit.FEET);
-        boolean result = length1.equals(length2);
+        boolean result = length1.compare(length2);
         Assert.assertTrue(result);
     }
 
@@ -57,7 +57,7 @@ public class QuantityMeasurementTest
     {
         QuantityMeasurement length1 = new QuantityMeasurement(0.0, Unit.INCH);
         QuantityMeasurement length2 = new QuantityMeasurement(0.0, Unit.INCH);
-        boolean result = length1.equals(length2);
+        boolean result = length1.compare(length2);
         Assert.assertTrue(result);
     }
 
@@ -93,7 +93,7 @@ public class QuantityMeasurementTest
     {
         QuantityMeasurement length1 = new QuantityMeasurement(5.0, Unit.FEET);
         QuantityMeasurement length2 = new QuantityMeasurement(5.0, Unit.FEET);
-        boolean result = length1.equals(length2);
+        boolean result = length1.compare(length2);
         Assert.assertTrue(result);
     }
 
@@ -102,7 +102,7 @@ public class QuantityMeasurementTest
     {
         QuantityMeasurement inchLength = new QuantityMeasurement(12.0, Unit.INCH);
         QuantityMeasurement feetLength = new QuantityMeasurement(1.0, Unit.FEET);
-        boolean result = inchLength.equals(feetLength);
+        boolean result = inchLength.compare(feetLength);
         Assert.assertTrue(result);
     }
 
@@ -111,7 +111,7 @@ public class QuantityMeasurementTest
     {
         QuantityMeasurement feetLength = new QuantityMeasurement(3.0, Unit.FEET);
         QuantityMeasurement yardLength = new QuantityMeasurement(1.0, Unit.YARD);
-        boolean result = feetLength.equals(yardLength);
+        boolean result = feetLength.compare(yardLength);
         Assert.assertTrue(result);
     }
 
@@ -120,7 +120,7 @@ public class QuantityMeasurementTest
     {
         QuantityMeasurement feetLength = new QuantityMeasurement(1.0, Unit.FEET);
         QuantityMeasurement yardLength = new QuantityMeasurement(1.0, Unit.YARD);
-        boolean result = feetLength.equals(yardLength);
+        boolean result = feetLength.compare(yardLength);
         Assert.assertFalse(result);
     }
 
@@ -129,7 +129,7 @@ public class QuantityMeasurementTest
     {
         QuantityMeasurement inchLength = new QuantityMeasurement(1.0, Unit.INCH);
         QuantityMeasurement yardLength = new QuantityMeasurement(1.0, Unit.YARD);
-        boolean result = inchLength.equals(yardLength);
+        boolean result = inchLength.compare(yardLength);
         Assert.assertFalse(result);
     }
 
@@ -138,7 +138,7 @@ public class QuantityMeasurementTest
     {
         QuantityMeasurement inchLength = new QuantityMeasurement(36.0, Unit.INCH);
         QuantityMeasurement yardLength = new QuantityMeasurement(1.0, Unit.YARD);
-        boolean result = inchLength.equals(yardLength);
+        boolean result = inchLength.compare(yardLength);
         Assert.assertTrue(result);
     }
 
@@ -147,7 +147,7 @@ public class QuantityMeasurementTest
     {
         QuantityMeasurement inchLength = new QuantityMeasurement(36.0, Unit.INCH);
         QuantityMeasurement yardLength = new QuantityMeasurement(1.0, Unit.YARD);
-        boolean result = yardLength.equals(inchLength);
+        boolean result = yardLength.compare(inchLength);
         Assert.assertTrue(result);
     }
 
@@ -156,7 +156,7 @@ public class QuantityMeasurementTest
     {
         QuantityMeasurement feetLength = new QuantityMeasurement(3.0, Unit.FEET);
         QuantityMeasurement yardLength = new QuantityMeasurement(1.0, Unit.YARD);
-        boolean result = yardLength.equals(feetLength);
+        boolean result = yardLength.compare(feetLength);
         Assert.assertTrue(result);
     }
 
@@ -165,7 +165,7 @@ public class QuantityMeasurementTest
     {
         QuantityMeasurement inchLength = new QuantityMeasurement(2.0, Unit.INCH);
         QuantityMeasurement cmLength = new QuantityMeasurement(5.0, Unit.CENTIMETER);
-        boolean result = inchLength.equals(cmLength);
+        boolean result = inchLength.compare(cmLength);
         Assert.assertTrue(result);
     }
 
@@ -174,7 +174,7 @@ public class QuantityMeasurementTest
     {
         QuantityMeasurement inchLength = new QuantityMeasurement(2.0, Unit.INCH);
         QuantityMeasurement cmLength = new QuantityMeasurement(2.0, Unit.CENTIMETER);
-        boolean result = inchLength.equals(cmLength);
+        boolean result = inchLength.compare(cmLength);
         Assert.assertFalse(result);
     }
 
@@ -183,7 +183,7 @@ public class QuantityMeasurementTest
     {
         QuantityMeasurement feetLength = new QuantityMeasurement(2.0, Unit.FEET);
         QuantityMeasurement cmLength = new QuantityMeasurement(60.0, Unit.CENTIMETER);
-        boolean result = feetLength.equals(cmLength);
+        boolean result = feetLength.compare(cmLength);
         Assert.assertTrue(result);
     }
 
@@ -192,7 +192,7 @@ public class QuantityMeasurementTest
     {
         QuantityMeasurement feetLength = new QuantityMeasurement(2.0, Unit.FEET);
         QuantityMeasurement cmLength = new QuantityMeasurement(2.0, Unit.CENTIMETER);
-        boolean result = feetLength.equals(cmLength);
+        boolean result = feetLength.compare(cmLength);
         Assert.assertFalse(result);
     }
 
@@ -201,7 +201,7 @@ public class QuantityMeasurementTest
     {
         QuantityMeasurement yardLength = new QuantityMeasurement(2.0, Unit.YARD);
         QuantityMeasurement cmLength = new QuantityMeasurement(180.0, Unit.CENTIMETER);
-        boolean result = yardLength.equals(cmLength);
+        boolean result = yardLength.compare(cmLength);
         Assert.assertTrue(result);
     }
 
@@ -210,7 +210,16 @@ public class QuantityMeasurementTest
     {
         QuantityMeasurement yardLength = new QuantityMeasurement(2.0, Unit.YARD);
         QuantityMeasurement cmLength = new QuantityMeasurement(2.0, Unit.CENTIMETER);
-        boolean result = yardLength.equals(cmLength);
+        boolean result = yardLength.compare(cmLength);
         Assert.assertFalse(result);
+    }
+
+    @Test
+    public void givenLengthsInInchAndInch_WhenAdded_ShouldReturnSum()
+    {
+        QuantityMeasurement inchLength1 = new QuantityMeasurement(2.0, Unit.INCH);
+        QuantityMeasurement inchLength2 = new QuantityMeasurement(2.0, Unit.INCH);
+        double result = inchLength1.addValues(inchLength1, inchLength2);
+        Assert.assertEquals(4, result, 0.0);
     }
 }
