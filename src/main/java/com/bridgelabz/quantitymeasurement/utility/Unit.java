@@ -5,10 +5,10 @@ public enum Unit
 
     INCH(1), FEET(12), YARD(36), CENTIMETER(0.4);
 
-    public final double value;
+    public final double unitValue;
 
-    Unit(double value)
+    Unit(double unitValue)
     {
-        this.value = value;
+        this.unitValue = unitValue;
     }
 }
