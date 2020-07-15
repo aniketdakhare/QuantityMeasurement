@@ -7,11 +7,12 @@ public enum Unit
     YARD(36, QuantityType.LENGTH), CENTIMETER(0.4, QuantityType.LENGTH),
     GALLON(3.78, QuantityType.VOLUME), LITRE(1.0, QuantityType.VOLUME),
     MILLILITRE(0.001,QuantityType.VOLUME), KILOGRAM(1.0, QuantityType.WEIGHT),
-    GRAM(0.001, QuantityType.WEIGHT), TONNE(1000.0, QuantityType.WEIGHT);
+    GRAM(0.001, QuantityType.WEIGHT), TONNE(1000.0, QuantityType.WEIGHT),
+    CELSIUS(1, QuantityType.TEMPERATURE), FAHRENHEIT(0.029, QuantityType.TEMPERATURE);
 
     public enum QuantityType
     {
-        LENGTH, VOLUME, WEIGHT
+        LENGTH, VOLUME, WEIGHT, TEMPERATURE
     }
 
     public final double unitValue;
