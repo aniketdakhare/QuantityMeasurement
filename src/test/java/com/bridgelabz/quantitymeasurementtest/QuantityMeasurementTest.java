@@ -222,4 +222,13 @@ public class QuantityMeasurementTest
         double result = inchLength1.addValues(inchLength1, inchLength2);
         Assert.assertEquals(4, result, 0.0);
     }
+
+    @Test
+    public void givenLengthsInFeetAndInch_WhenAdded_ShouldReturnSum()
+    {
+        QuantityMeasurement feetLength = new QuantityMeasurement(1.0, Unit.FEET);
+        QuantityMeasurement inchLength = new QuantityMeasurement(2.0, Unit.INCH);
+        double result = feetLength.addValues(feetLength, inchLength);
+        Assert.assertEquals(14, result, 0.0);
+    }
 }
