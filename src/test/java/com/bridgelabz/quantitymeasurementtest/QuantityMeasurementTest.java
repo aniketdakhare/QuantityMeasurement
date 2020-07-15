@@ -383,4 +383,13 @@ public class QuantityMeasurementTest
         double result = litreValue.addValues(mlValue, litreValue);
         Assert.assertEquals(4, result, 0.0);
     }
+
+    @Test
+    public void givenWeightInKilogramAndKilogram_WhenCheckedForValueAreEqual_ShouldReturnTrue()
+    {
+        QuantityMeasurement kgValue1 = new QuantityMeasurement(2.0, Unit.KILOGRAM);
+        QuantityMeasurement kgValue2 = new QuantityMeasurement(2.0, Unit.KILOGRAM);
+        boolean result = kgValue1.compare(kgValue2);
+        Assert.assertTrue(result);
+    }
 }
