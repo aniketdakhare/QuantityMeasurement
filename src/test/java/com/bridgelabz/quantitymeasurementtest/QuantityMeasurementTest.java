@@ -392,4 +392,13 @@ public class QuantityMeasurementTest
         boolean result = kgValue1.compare(kgValue2);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void givenWeightInGramAndGram_WhenCheckedForValueAreEqual_ShouldReturnTrue()
+    {
+        QuantityMeasurement gramValue1 = new QuantityMeasurement(2.0, Unit.GRAM);
+        QuantityMeasurement gramValue2 = new QuantityMeasurement(2.0, Unit.GRAM);
+        boolean result = gramValue1.compare(gramValue2);
+        Assert.assertTrue(result);
+    }
 }
