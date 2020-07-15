@@ -367,11 +367,20 @@ public class QuantityMeasurementTest
     }
 
     @Test
-    public void givenVolumeInGallonAndLitre_WhenAdded_ShouldReturnFalse()
+    public void givenVolumeInGallonAndLitre_WhenAdded_ShouldReturnSum()
     {
         QuantityMeasurement gallonValue = new QuantityMeasurement(1.0, Unit.GALLON);
         QuantityMeasurement litreValue = new QuantityMeasurement(3.78, Unit.LITRE);
         double result = gallonValue.addValues(litreValue, gallonValue);
         Assert.assertEquals(7.56, result, 0.0);
+    }
+
+    @Test
+    public void givenVolumeInLitreAndMillilitre_WhenAdded_ShouldReturnSum()
+    {
+        QuantityMeasurement litreValue = new QuantityMeasurement(2.0, Unit.LITRE);
+        QuantityMeasurement mlValue = new QuantityMeasurement(2000.0, Unit.MILLILITRE);
+        double result = litreValue.addValues(mlValue, litreValue);
+        Assert.assertEquals(4, result, 0.0);
     }
 }
