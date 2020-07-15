@@ -446,4 +446,13 @@ public class QuantityMeasurementTest
         boolean result = tonneValue.compare(kgValue);
         Assert.assertFalse(result);
     }
+
+    @Test
+    public void givenWeightInTonneAndGram_WhenCheckedForValueAreEqual_ShouldReturnTrue()
+    {
+        QuantityMeasurement tonneValue = new QuantityMeasurement(2.0, Unit.TONNE);
+        QuantityMeasurement gramValue = new QuantityMeasurement(2000000.0, Unit.GRAM);
+        boolean result = tonneValue.compare(gramValue);
+        Assert.assertTrue(result);
+    }
 }
