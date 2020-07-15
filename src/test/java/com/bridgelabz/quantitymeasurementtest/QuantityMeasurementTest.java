@@ -307,6 +307,15 @@ public class QuantityMeasurementTest
     }
 
     @Test
+    public void givenVolumeInLitreAndMillilitre_WhenCheckedForValueAreNotEqual_ShouldReturnFalse()
+    {
+        QuantityMeasurement litreValue = new QuantityMeasurement(2.0, Unit.LITRE);
+        QuantityMeasurement mlValue = new QuantityMeasurement(2.0, Unit.MILLILITRE);
+        boolean result = litreValue.compare(mlValue);
+        Assert.assertFalse(result);
+    }
+
+    @Test
     public void givenLengthsInFeetAndCentimeter_WhenValuesAreNegative_ShouldThrowException()
     {
         try
