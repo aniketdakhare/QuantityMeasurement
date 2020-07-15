@@ -319,11 +319,28 @@ public class QuantityMeasurementTest
     {
         try
         {
-            QuantityMeasurement feetLength = new QuantityMeasurement(2.0, Unit.FEET);
-            QuantityMeasurement litreLength = new QuantityMeasurement(60.0, Unit.LITRE);
+            QuantityMeasurement feetValue = new QuantityMeasurement(2.0, Unit.FEET);
+            QuantityMeasurement litreValue = new QuantityMeasurement(60.0, Unit.LITRE);
             ExpectedException exceptionRule = ExpectedException.none();
             exceptionRule.expect(QuantityMeasurementException.class);
-            feetLength.compare(litreLength);
+            feetValue.compare(litreValue);
+        }
+        catch (QuantityMeasurementException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void givenValuesInInchAndLitre_WhenAdded_ShouldThrowException()
+    {
+        try
+        {
+            QuantityMeasurement inchValue = new QuantityMeasurement(2.0, Unit.INCH);
+            QuantityMeasurement litreValue = new QuantityMeasurement(2.0, Unit.LITRE);
+            ExpectedException exceptionRule = ExpectedException.none();
+            exceptionRule.expect(QuantityMeasurementException.class);
+            inchValue.addValues(inchValue, litreValue);
         }
         catch (QuantityMeasurementException e)
         {
