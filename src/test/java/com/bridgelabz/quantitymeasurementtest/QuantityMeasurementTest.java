@@ -240,4 +240,13 @@ public class QuantityMeasurementTest
         double result = feetLength1.addValues(feetLength1, feetLength2);
         Assert.assertEquals(24, result, 0.0);
     }
+
+    @Test
+    public void givenLengthsInInchAndCentimeter_WhenAdded_ShouldReturnSumInInch()
+    {
+        QuantityMeasurement inchLength = new QuantityMeasurement(2.0, Unit.INCH);
+        QuantityMeasurement cmLength = new QuantityMeasurement(2.5, Unit.CENTIMETER);
+        double result = inchLength.addValues(inchLength, cmLength);
+        Assert.assertEquals(3, result, 0.0);
+    }
 }
