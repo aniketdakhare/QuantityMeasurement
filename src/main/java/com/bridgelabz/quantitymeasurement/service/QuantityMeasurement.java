@@ -1,11 +1,13 @@
 package com.bridgelabz.quantitymeasurement.service;
 
+import com.bridgelabz.quantitymeasurement.exception.QuantityMeasurementException;
 import com.bridgelabz.quantitymeasurement.utility.Unit;
 
 public class QuantityMeasurement implements IQuantityMeasurement
 {
     Unit unit;
     double value;
+    Unit.QuantityType quantityType;
 
     /**
      * CONSTRUCTOR TO INITIATE "unit" AND "value"
@@ -16,6 +18,7 @@ public class QuantityMeasurement implements IQuantityMeasurement
     {
         this.value = value;
         this.unit = unit;
+        this.quantityType = unit.quantityType;
     }
 
     public QuantityMeasurement() { }
@@ -29,19 +32,25 @@ public class QuantityMeasurement implements IQuantityMeasurement
     @Override
     public double convertValue(Unit unit, double value)
     {
+        if (value < 0)
+            throw new QuantityMeasurementException("Negative values are not Excepted",
+                    QuantityMeasurementException.TYPE.NEGATIVE_QUANTITY);
         return value * unit.unitValue;
     }
 
     /**
      * METHOD TO COMPARE 2 GIVEN VALUES
-     * @param quantityType provides object for second unit type
+     * @param quantity provides object for second unit type
      * @return result in boolean
      */
-    public boolean compare(QuantityMeasurement quantityType)
+    public boolean compare(QuantityMeasurement quantity)
     {
-        if (this.unit == quantityType.unit || quantityType == null)
-            return equals(quantityType);
-        return Double.compare(convertValue(quantityType.unit, quantityType.value), convertValue(unit, value)) == 0;
+        if (quantityType != quantity.quantityType)
+            throw new QuantityMeasurementException("Given different type quantities can't be compared",
+                    QuantityMeasurementException.TYPE.NON_COMPARABLE_QUANTITY);
+        if (this.unit == quantity.unit)
+            return equals(quantity);
+        return Double.compare(convertValue(quantity.unit, quantity.value), convertValue(unit, value)) == 0;
     }
 
     /**
