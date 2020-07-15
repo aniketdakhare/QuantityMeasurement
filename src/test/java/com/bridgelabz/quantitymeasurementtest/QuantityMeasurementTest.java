@@ -313,4 +313,21 @@ public class QuantityMeasurementTest
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void givenValuesInFeetAndLitre_WhenCompared_ShouldThrowException()
+    {
+        try
+        {
+            QuantityMeasurement feetLength = new QuantityMeasurement(2.0, Unit.FEET);
+            QuantityMeasurement litreLength = new QuantityMeasurement(60.0, Unit.LITRE);
+            ExpectedException exceptionRule = ExpectedException.none();
+            exceptionRule.expect(QuantityMeasurementException.class);
+            feetLength.compare(litreLength);
+        }
+        catch (QuantityMeasurementException e)
+        {
+            e.printStackTrace();
+        }
+    }
 }
