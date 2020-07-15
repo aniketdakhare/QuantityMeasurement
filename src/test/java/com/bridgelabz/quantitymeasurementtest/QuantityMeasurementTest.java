@@ -215,7 +215,7 @@ public class QuantityMeasurementTest
     }
 
     @Test
-    public void givenLengthsInInchAndInch_WhenAdded_ShouldReturnSum()
+    public void givenLengthsInInchAndInch_WhenAdded_ShouldReturnSumInInch()
     {
         QuantityMeasurement inchLength1 = new QuantityMeasurement(2.0, Unit.INCH);
         QuantityMeasurement inchLength2 = new QuantityMeasurement(2.0, Unit.INCH);
@@ -224,11 +224,20 @@ public class QuantityMeasurementTest
     }
 
     @Test
-    public void givenLengthsInFeetAndInch_WhenAdded_ShouldReturnSum()
+    public void givenLengthsInFeetAndInch_WhenAdded_ShouldReturnSumInInch()
     {
         QuantityMeasurement feetLength = new QuantityMeasurement(1.0, Unit.FEET);
         QuantityMeasurement inchLength = new QuantityMeasurement(2.0, Unit.INCH);
         double result = feetLength.addValues(feetLength, inchLength);
         Assert.assertEquals(14, result, 0.0);
+    }
+
+    @Test
+    public void givenLengthsInFeetAndFeet_WhenAdded_ShouldReturnSumInInch()
+    {
+        QuantityMeasurement feetLength1 = new QuantityMeasurement(1.0, Unit.FEET);
+        QuantityMeasurement feetLength2 = new QuantityMeasurement(1.0, Unit.FEET);
+        double result = feetLength1.addValues(feetLength1, feetLength2);
+        Assert.assertEquals(24, result, 0.0);
     }
 }
