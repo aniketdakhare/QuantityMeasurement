@@ -253,9 +253,18 @@ public class QuantityMeasurementTest
     @Test
     public void givenVolumeInLitreAndLitre_WhenCheckedForValueAreEqual_ShouldReturnTrue()
     {
-        QuantityMeasurement litreValue = new QuantityMeasurement(0.0, Unit.LITRE);
-        QuantityMeasurement gallonValue = new QuantityMeasurement(0.0, Unit.LITRE);
-        boolean result = litreValue.compare(gallonValue);
+        QuantityMeasurement litreValue1 = new QuantityMeasurement(2.0, Unit.LITRE);
+        QuantityMeasurement litreValue2 = new QuantityMeasurement(2.0, Unit.LITRE);
+        boolean result = litreValue1.compare(litreValue2);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenVolumeInGallonAndGallon_WhenCheckedForValueAreEqual_ShouldReturnTrue()
+    {
+        QuantityMeasurement gallonValue1 = new QuantityMeasurement(2.0, Unit.GALLON);
+        QuantityMeasurement gallonValue2 = new QuantityMeasurement(2.0, Unit.GALLON);
+        boolean result = gallonValue1.compare(gallonValue2);
         Assert.assertTrue(result);
     }
 }
