@@ -475,7 +475,7 @@ public class QuantityMeasurementTest
     }
 
     @Test
-    public void givenWeightInCelsiusAndFahrenheit_WhenAdded_ShouldReturnSum()
+    public void givenWeightInCelsiusAndFahrenheit_WhenCompared_ShouldReturntrue()
     {
         QuantityMeasurement fahrenheitValue = new QuantityMeasurement(212.0, Unit.FAHRENHEIT);
         QuantityMeasurement celsiusValue = new QuantityMeasurement(100.0, Unit.CELSIUS);
@@ -484,11 +484,20 @@ public class QuantityMeasurementTest
     }
 
     @Test
-    public void givenWeightInFahrenheitAndCelsius_WhenAdded_ShouldReturnSum()
+    public void givenWeightInFahrenheitAndCelsius_WhenCompared_ShouldReturnTrue()
     {
         QuantityMeasurement celsiusValue = new QuantityMeasurement(50.0, Unit.CELSIUS);
         QuantityMeasurement fahrenheitValue = new QuantityMeasurement(122.0, Unit.FAHRENHEIT);
         boolean result = celsiusValue.compareTemperature(fahrenheitValue);
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenWeightInFahrenheitAndCelsius_WhenCompareAndNotEqual_ShouldReturnFalse()
+    {
+        QuantityMeasurement celsiusValue = new QuantityMeasurement(50.0, Unit.CELSIUS);
+        QuantityMeasurement fahrenheitValue = new QuantityMeasurement(50.0, Unit.FAHRENHEIT);
+        boolean result = celsiusValue.compareTemperature(fahrenheitValue);
+        Assert.assertFalse(result);
     }
 }
