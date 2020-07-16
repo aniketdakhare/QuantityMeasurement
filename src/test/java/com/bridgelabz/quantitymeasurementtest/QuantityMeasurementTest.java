@@ -482,4 +482,13 @@ public class QuantityMeasurementTest
         boolean result = fahrenheitValue.compareTemperature(celsiusValue);
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void givenWeightInFahrenheitAndCelsius_WhenAdded_ShouldReturnSum()
+    {
+        QuantityMeasurement celsiusValue = new QuantityMeasurement(50.0, Unit.CELSIUS);
+        QuantityMeasurement fahrenheitValue = new QuantityMeasurement(122.0, Unit.FAHRENHEIT);
+        boolean result = celsiusValue.compareTemperature(fahrenheitValue);
+        Assert.assertTrue(result);
+    }
 }
