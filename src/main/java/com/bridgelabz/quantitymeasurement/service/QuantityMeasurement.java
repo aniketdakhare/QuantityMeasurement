@@ -54,6 +54,20 @@ public class QuantityMeasurement implements IQuantityMeasurement
     }
 
     /**
+     * METHOD TO COMPARE 2 GIVEN TEMPERATURE VALUES
+     * @param quantity provides object for second temperature value
+     * @return result in boolean
+     */
+    public boolean compareTemperature(QuantityMeasurement quantity)
+    {
+        if (this.unit == Unit.CELSIUS)
+            return Double.compare(((quantity.value - quantity.quantityType.temperatureConstant2)
+                    * 1/quantity.quantityType.temperatureConstant1 ), this.value) == 0;
+        return Double.compare(((quantity.value * quantity.quantityType.temperatureConstant1)
+                + quantity.quantityType.temperatureConstant2), this.value) == 0;
+    }
+
+    /**
      * METHOD TO CHECK WHETHER GIVEN VALUES ARE EQUAL OR NOT
      * @param o provides the object for second unit type
      * @return result in boolean

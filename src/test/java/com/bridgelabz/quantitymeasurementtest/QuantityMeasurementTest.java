@@ -473,4 +473,31 @@ public class QuantityMeasurementTest
         double result = tonneValue.addValues(gramValue, tonneValue);
         Assert.assertEquals(1001, result, 0.0);
     }
+
+    @Test
+    public void givenWeightInCelsiusAndFahrenheit_WhenCompared_ShouldReturntrue()
+    {
+        QuantityMeasurement fahrenheitValue = new QuantityMeasurement(212.0, Unit.FAHRENHEIT);
+        QuantityMeasurement celsiusValue = new QuantityMeasurement(100.0, Unit.CELSIUS);
+        boolean result = fahrenheitValue.compareTemperature(celsiusValue);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenWeightInFahrenheitAndCelsius_WhenCompared_ShouldReturnTrue()
+    {
+        QuantityMeasurement celsiusValue = new QuantityMeasurement(50.0, Unit.CELSIUS);
+        QuantityMeasurement fahrenheitValue = new QuantityMeasurement(122.0, Unit.FAHRENHEIT);
+        boolean result = celsiusValue.compareTemperature(fahrenheitValue);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenWeightInFahrenheitAndCelsius_WhenCompareAndNotEqual_ShouldReturnFalse()
+    {
+        QuantityMeasurement celsiusValue = new QuantityMeasurement(50.0, Unit.CELSIUS);
+        QuantityMeasurement fahrenheitValue = new QuantityMeasurement(50.0, Unit.FAHRENHEIT);
+        boolean result = celsiusValue.compareTemperature(fahrenheitValue);
+        Assert.assertFalse(result);
+    }
 }
